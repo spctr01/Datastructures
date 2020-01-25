@@ -30,14 +30,26 @@ class link:
             print(start.data)
 
 #insert a node inbetween the other nodes
-    def insert(self,data,position):
+    def insert(self,data,no):
         new_node = node(data)
         prev_node = self.head
-        for x in range(position-1):
+        for x in range(no-1):
             prev_node = prev_node.next
 
         new_node.next = prev_node.next
         prev_node.next = new_node
+
+#deleting node by nunber
+    def delete(self,no):
+        prev_node = self.head
+        second_node = prev_node.next
+        for x in range(no-1):
+            prev_node = prev_node.next
+            second_node = prev_node.next
+
+        prev_node.next = second_node.next
+
+
 
 
 
@@ -47,8 +59,13 @@ li.append(2)
 li.append(3)
 print('lenght',li.length())
 li.display()
+
 li.insert(8,2)
-print('data')
+print('after insertion')
+li.display()
+
+li.delete(1)
+print('after deletion')
 li.display()
 
 
