@@ -29,7 +29,7 @@ class link:
             start = start.next
             print(start.data)
 
-#insert a node inbetween the other nodes
+# add node inbetween nodes  doesnt add node at last position of the list use append for that
     def insert(self,data,no):
         new_node = node(data)
         prev_node = self.head
