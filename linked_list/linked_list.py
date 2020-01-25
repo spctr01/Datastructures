@@ -1,41 +1,55 @@
 class node:
-    def __init__(self, data= None):
+    def __init__(self,data=None):
         self.data = data
         self.next = None
 
-class linked_list:
+class link:
     def __init__(self):
         self.head = node()
 
+# Head node doesnt contain any data just a ponter to fist node
     def append(self,data):
         new_node = node(data)
-        crnt =self.head
-        while crnt.next != None:
-            crnt = crnt.next
-        crnt.next = new_node
-
+        current_node = self.head
+        while current_node.next != None:
+            current_node = current_node.next
+        current_node.next = new_node
+#returns length of the list starting from 1 as head doesnt cntain data so start from 1st node
     def length(self):
-        length = 0
-        start  = self.head
-        while start.next != None:
-            length += 1
-            start = start.next
-        return length
-
-    def display(self):
-        data = []
         start = self.head
-        while start.next != None:
+        total = 0
+        while start.next!= None:
             start = start.next
-            data.append(start.data)
-        return(data)
+            total +=1
+        return total
+#display data of the linked list
+    def display(self):
+        start = self.head
+        while start.next !=None:
+            start = start.next
+            print(start.data)
+
+#insert a node inbetween the other nodes
+    def insert(self,data,position):
+        new_node = node(data)
+        prev_node = self.head
+        for x in range(position-1):
+            prev_node = prev_node.next
+
+        new_node.next = prev_node.next
+        prev_node.next = new_node
 
 
-l = linked_list()
-print(l.length())
-l.append(3)
-l.append(2)
-l.append(4)
-print(l.length())
-print(l.display())
+
+li = link()
+li.append(1)
+li.append(2)
+li.append(3)
+print('lenght',li.length())
+li.display()
+li.insert(8,2)
+print('data')
+li.display()
+
+
 
