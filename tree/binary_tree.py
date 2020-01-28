@@ -11,7 +11,9 @@ class tree:
     def insert(self, data):
         if not self.root:
             self.root = Node(data)
-        self.insert_node(data, self.root)
+        else:
+            self.insert_node(data, self.root)
+        
 
     def insert_node(self, data, node):
         if data > node.data:
@@ -19,11 +21,28 @@ class tree:
                 self.insert_node(data,node.right)
             node.right = Node(data)
 
+        else:
+            if node.left:
+                self.insert_node(data, node.left)
+            node.left = Node(data)
+
+
+#traversing tree INORDER
+    def traverse(self,node):
+        if node.left:
+            self.traverse(node.left)
+
+        print(node.data)
+        
+        if node.right:
+            self.traverse(node.right)
+        
 
 
     def display (self):
-        b = self.root.right
-        print(self.root.data,b.data)
+        if self.root:
+            self.traverse(self.root)
+        
 
 t = tree()
 t.insert(5)
