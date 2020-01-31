@@ -30,33 +30,46 @@ class tree:
 
 
 #traversing tree INORDER
-    def traverse(self,node):
+    def trv(self,node):
         if node.left:
-            self.traverse(node.left)
+            self.trv(node.left)
 
         print(node.data)
         
         if node.right:
-            self.traverse(node.right)
+            self.trv(node.right)
             
 #travering PREORDER
-    def traverse_pre(self,node):
+    def trv_pre(self,node):
         print(node.data)
         if node.left:
-            self.traverse_pre(node.left)
+            self.trv_pre(node.left)
         
         if node.right:
-            self.traverse_pre(node.right)
+            self.trv_pre(node.right)
 
+
+    def trv_post(self, node):
+        if node.left:
+            self.trv_post(node.left)
+        
+
+        if node.right:
+            self.trv_post(node.right)
+        print(node.data)
 
     def display (self):
         print('wallah inorder traverse.')
         if self.root:
-            self.traverse(self.root)
-
+            self.trv(self.root)
+ 
         print('wallah preorder traverse.')
         if self.root:
-            self.traverse_pre(self.root)
+            self.trv_pre(self.root)
+
+        print('wallah postorder treversal')
+        if self.root:
+            self.trv_post(self.root)
 
     
         
