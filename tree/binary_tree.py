@@ -29,7 +29,7 @@ class tree:
                 node.left = Node(data)
 
 
-    #traversing tree INORDER DEPTH FIRST SEARCH
+    #traversing tree INORDER 
     def trv(self,node):
         if node.left:
             self.trv(node.left)
@@ -39,7 +39,7 @@ class tree:
         if node.right:
             self.trv(node.right)
             
-    #travering PREORDER DEPTH FIRST SEARCH
+    #travering PREORDER 
     def trv_pre(self,node):
         print(node.data, end=" ")
         if node.left:
@@ -48,7 +48,7 @@ class tree:
         if node.right:
             self.trv_pre(node.right)
 
-    #travering POSTORDER DEPTH FIRST SEARCH
+    #travering POSTORDER 
     def trv_post(self, node):
         if node.left:
             self.trv_post(node.left)
