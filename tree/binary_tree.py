@@ -29,7 +29,7 @@ class tree:
                 node.left = Node(data)
 
 
-#traversing tree INORDER
+    #traversing tree INORDER DEPTH FIRST SEARCH
     def trv(self,node):
         if node.left:
             self.trv(node.left)
@@ -39,7 +39,7 @@ class tree:
         if node.right:
             self.trv(node.right)
             
-#travering PREORDER
+    #travering PREORDER DEPTH FIRST SEARCH
     def trv_pre(self,node):
         print(node.data, end=" ")
         if node.left:
@@ -48,7 +48,7 @@ class tree:
         if node.right:
             self.trv_pre(node.right)
 
-
+    #travering POSTORDER DEPTH FIRST SEARCH
     def trv_post(self, node):
         if node.left:
             self.trv_post(node.left)
@@ -58,7 +58,7 @@ class tree:
         print(node.data , end =" ")
 
 
-#level order traversal
+    #level order traversal BREADTH FIRST SEARCH
     def level(self,node):
         que = []
         que.insert(0,node)
@@ -76,8 +76,6 @@ class tree:
         
 
 
-        
-
 
     def display (self):
         print('\nwallah inorder traverse:', end =" ")
@@ -92,9 +90,9 @@ class tree:
         if self.root:
             self.trv_post(self.root)
 
-        '''print('\nwallah  level order traversal:', end=" ")
+        print('\nwallah  level order traversal:', end=" ")
         if self.root:
-            self.level(self.root)'''
+            self.level(self.root)
         
 
 t = tree()
