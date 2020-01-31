@@ -34,14 +34,14 @@ class tree:
         if node.left:
             self.trv(node.left)
 
-        print(node.data)
+        print(node.data, end=" ")
         
         if node.right:
             self.trv(node.right)
             
 #travering PREORDER
     def trv_pre(self,node):
-        print(node.data)
+        print(node.data, end=" ")
         if node.left:
             self.trv_pre(node.left)
         
@@ -52,26 +52,49 @@ class tree:
     def trv_post(self, node):
         if node.left:
             self.trv_post(node.left)
-        
 
         if node.right:
             self.trv_post(node.right)
-        print(node.data)
+        print(node.data , end =" ")
+
+
+#level order traversal
+    def level(self,node):
+        que = []
+        que.insert(0,node)
+        
+        while que:
+            last_n = que[-1]
+            if last_n.left:
+                que.insert(0,last_n.left)
+            
+            if last_n.right:
+                que.insert(0,last_n.right)
+                
+            print(last_n.data,end=" ")
+            del que[-1]
+        
+
+
+        
+
 
     def display (self):
-        print('wallah inorder traverse.')
+        print('\nwallah inorder traverse:', end =" ")
         if self.root:
             self.trv(self.root)
  
-        print('wallah preorder traverse.')
+        print('\nwallah preorder traverse:', end=" ")
         if self.root:
             self.trv_pre(self.root)
 
-        print('wallah postorder treversal')
+        print('\nwallah postorder treversal:',end=" ")
         if self.root:
             self.trv_post(self.root)
 
-    
+        '''print('\nwallah  level order traversal:', end=" ")
+        if self.root:
+            self.level(self.root)'''
         
 
 t = tree()
